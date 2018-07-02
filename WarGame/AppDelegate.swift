@@ -2,10 +2,10 @@
 //  AppDelegate.swift
 //  WarGame
 //
-//  Created by Purvi Patel on 6/30/18.
+//  Created by Snehal Patel on 6/30/18.
 //  Copyright © 2018 Snehal Patel. All rights reserved.
 //
-
+    
 import UIKit
 
 @UIApplicationMain
