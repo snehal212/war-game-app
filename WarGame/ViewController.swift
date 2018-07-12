@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  WarGame
 //
-//  Created by Snehal Patel on 6/30/18.
+//  Created by Purvi Patel on 6/30/18.
 //  Copyright © 2018 Snehal Patel. All rights reserved.
 //
 
@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cpuScore: UILabel!
     var playerScoreValue = 0
     var cpuScoreValue = 0
+    var game = WarGame()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,19 +29,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func dealButton(_ sender: Any) {
-        let playerNumber = arc4random_uniform(12) + 2
-        let cpuNumber = arc4random_uniform(12) + 2
+
+        game.deal()
+        let cards = game.getCards()
+        let scores = game.getScores()
         
-        playerCard.image = UIImage.init(named: "card\(String(playerNumber))")
-        cpuCard.image = UIImage.init(named: "card\(String(cpuNumber))")
+        playerCard.image = UIImage.init(named: cards.0)
+        cpuCard.image = UIImage.init(named: cards.1)
         
-        if playerNumber > cpuNumber {
-            playerScoreValue += 1
-        } else if  playerNumber < cpuNumber {
-            cpuScoreValue += 1
-        }
-        playerScore.text = String(playerScoreValue)
-        cpuScore.text = String(cpuScoreValue)
+        playerScore.text = String(scores.0)
+        cpuScore.text = String(scores.1)
     }
 
 }
