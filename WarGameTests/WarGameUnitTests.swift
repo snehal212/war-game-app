@@ -11,15 +11,21 @@ import XCTest
 
 class WarGameUnitTests: XCTestCase {
     var game = WarGame()
+    
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        setValues(0, 0, 0, 0)
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func setValues(_ playerScoreValue: Int,_ cpuScoreValue: Int,_ playerCardValue: Int,_ cpuCardValue: Int){
+        game.playerScoreValue = playerScoreValue
+        game.cpuScoreValue = cpuScoreValue
+        game.playerCardValue = playerCardValue
+        game.cpuCardValue = cpuCardValue
     }
     
     func testDefaultValues() {
@@ -28,44 +34,20 @@ class WarGameUnitTests: XCTestCase {
     }
     
     func testDeal(){
-        game.playerCardValue = 0
-        game.cpuCardValue = 0
         game.deal()
         XCTAssert(game.playerCardValue != 0)
         XCTAssert(game.cpuCardValue != 0)
-        game.playerCardValue = 0
-        game.cpuCardValue = 0
     }
     
     func testGetScores(){
-        game.playerCardValue =  1
-        game.cpuCardValue = 1
-        game.playerScoreValue = 0
-        game.cpuScoreValue = 0
+        setValues(0, 0, 1, 1)
         XCTAssert( game.getScores() == (0, 0))
         
-        game.playerCardValue =  10
-        game.cpuCardValue = 1
-        XCTAssert( game.getScores() == (1, 0))
+        setValues(0, 0, 1, 10)
+        XCTAssert( game.getScores() == (0, 1))
         
-        game.playerCardValue =  1
-        game.cpuCardValue = 10
-        
+        setValues(0, 1, 10, 1)
         XCTAssert( game.getScores() == (1, 1))
-        game.playerCardValue =  0
-        game.cpuCardValue = 0
-        game.playerScoreValue = 0
-        game.cpuScoreValue = 0
-        
-        
-        
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
     
 }

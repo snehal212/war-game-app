@@ -22,7 +22,6 @@ class WarGame {
         let playerCard = "card\(String(playerCardValue))"
         let cpuCard = "card\(String(cpuCardValue))"
         return (playerCard, cpuCard)
-    //update image and update score
     }
     
     func getScores() -> (Int, Int) {

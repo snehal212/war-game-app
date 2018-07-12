@@ -81,11 +81,11 @@
 			children = (
 				001CDCFB20E829C100E954E0 /* AppDelegate.swift */,
 				001CDCFD20E829C100E954E0 /* ViewController.swift */,
+				0060D4F620F7C13900F6078E /* WarGame.swift */,
 				001CDCFF20E829C100E954E0 /* Main.storyboard */,
 				001CDD0220E829CD00E954E0 /* Assets.xcassets */,
 				001CDD0420E829CD00E954E0 /* LaunchScreen.storyboard */,
 				001CDD0720E829CD00E954E0 /* Info.plist */,
-				0060D4F620F7C13900F6078E /* WarGame.swift */,
 			);
 			path = WarGame;
 			sourceTree = "<group>";

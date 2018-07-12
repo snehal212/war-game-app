@@ -14,31 +14,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var cpuCard: UIImageView!
     @IBOutlet weak var playerScore: UILabel!
     @IBOutlet weak var cpuScore: UILabel!
-    var playerScoreValue = 0
-    var cpuScoreValue = 0
+
     var game = WarGame()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func dealButton(_ sender: Any) {
 
         game.deal()
-        let cards = game.getCards()
-        let scores = game.getScores()
+
+        playerCard.image = UIImage.init(named: game.getCards().0)
+        cpuCard.image = UIImage.init(named: game.getCards().1)
         
-        playerCard.image = UIImage.init(named: cards.0)
-        cpuCard.image = UIImage.init(named: cards.1)
-        
-        playerScore.text = String(scores.0)
-        cpuScore.text = String(scores.1)
+        playerScore.text = String(game.getScores().0)
+        cpuScore.text = String(game.getScores().1)
     }
 
 }
